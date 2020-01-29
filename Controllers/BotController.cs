@@ -26,9 +26,22 @@ namespace CIT218Lab1Assignment.Controllers
             return View("ConfirmBotRequest");
         }
 
-        public ActionResult NewBot()
+        public ActionResult NewBot(string type)
         {
-            return View("BotRequest");
+            string t = HttpUtility.HtmlEncode(type);
+
+            if (t == "customer")
+            {
+
+                return RedirectToAction("Contact", "Home");
+            }
+
+            else
+            {
+                return View("BotRequest");
+            }
+
+            
         }
 
     }
