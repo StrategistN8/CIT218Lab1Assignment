@@ -1,0 +1,53 @@
+﻿@*@{
+    Layout = null;
+}*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robot Request Form</title>
+    @Styles.Render("~/Content/Bot.css")
+    <style>
+        body {
+            padding-top: 0px;
+        }
+        .navbar a:link {
+            color: white;
+        }
+
+        .navbar a:visited {
+            color: whitesmoke;
+        }
+        input{
+            border-radius: 10px;
+            background-color: dimgray;
+            color:white;
+            padding:5px;
+        }
+        p{
+            background-color: transparent;
+            color:white;
+        }
+        .navbar a:hover {
+            color: lemonchiffon;
+            text-shadow: 1px 1px white;
+            transition: 1s;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Robot Request</h2>
+    <article>
+    <form class="justify-content-md-center" name="botRequest" method="post">
+        <p>Name of robot model: <input type="text" name="BotName" id="BotName" /></p>
+        <p>Robot Function: <input type="text" name="BotFunc" id="BotFunc" /></p>
+        <p>Intended Mine System: <input type="text" name="MineSys" id="MineSys" /></p>
+        <p>Quantity: <input type="number" name="Quantity" id="Quantity" /></p>
+        <input type="submit" value="Submit Order Request" />
+    </form>
+    </article>
+</body>
+</html>
