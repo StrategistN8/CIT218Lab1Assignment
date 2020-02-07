@@ -1,0 +1,151 @@
+﻿@{
+
+    var mineInfo = "";
+    var mineEnvo = "";
+    var misposts = 0;
+    string[] zetaArray = new string[]
+    {
+        "Ahayweh Gate",
+        "Turnabout Bore",
+        "Wenl Mine",
+        "Robby Station"
+                    };
+    string[] quartArray = new string[]
+    {
+        "Seaspring Gorge",
+        "The Well",
+        "Coralbank Quarry",
+        "Riverbed Mine"
+                    };
+    string[] brimArray = new string[]
+    {
+        "Firewalker Mine",
+        "Lavafalls Extraction Control",
+        "Coalbank Shaft",
+        "Magnacore Station"
+                    };
+    string[] frostArray = new string[]
+    {
+        "Sleetstone Tunnels",
+        "Arcticon Corridor",
+        "Icehammer Caverns",
+        "Terafrost Catacombs"
+                    };
+    string[] balorisArray = new string[]
+    {
+        "Y'Tor III",
+        "Drec'nibie K'luh",
+        "Nep-Hilim S'crub",
+        "Gytowt Station"
+                    };
+    string[] puumaArray = new string[]
+    {
+        "N'neri Ring",
+        "Kwood A'rior",
+        "Iwihml",
+        "Tycho Brahe",
+                    };
+    string[] displayArray = null;
+    string mineListings = "";
+
+    if (IsPost)
+    {
+        var postedMine = Request["mineName"].ToLower();
+
+        switch (postedMine)
+        {
+            case "zeta aquilae":
+                mineInfo = "Zeta Aquilae is home to several of the PTMC's oldest extra-solar mines and serves as a waystation for transit to further systems.";
+                mineEnvo = "Mixture of Ice and Molten Rock";
+                displayArray = zetaArray;
+                misposts = 0;
+                break;
+            case "quartzon":
+                mineInfo = "The Earth-like Quartzon is an unusual world with high concentrations of water and one of the first successful instances of terraformating. The sheer amount of water present makes mining a difficult, nessessitating the inclusion of pumps to keep tunnels from being submerged entirely. ";
+                mineEnvo = "Standard Rock, Underground Rivers/Lakes";
+                displayArray = quartArray;
+                misposts = 0;
+                break;
+            case "brimspark":
+                mineInfo = "A planet with high tectonic activity, Brimspark is bathed in lava and semi-molten rock. Experience from PTMC holdings on Io and Mercury allowed for thriving ore mines within the surface, though the intense heat and working conditions require that robots perform most mining activities.";
+                mineEnvo = "Lava flows, vast caverns";
+                displayArray = brimArray;
+                misposts = 0;
+                break;
+            case "limefrost spiral":
+                mineInfo = "One of the furthest systems to have been colonised by the PTMC, Limefrost Spiral is a beautiful ringed ice world orbiting a distant star. ";
+                mineEnvo = "Ice";
+                displayArray = frostArray;
+                misposts = 0;
+                break;
+            case "baloris prime":
+                mineInfo = "The unusual orbit of Baloris Prime results in the planet having no seasons, due to a complete lack of an axial tilt.  Due to the inhospitable environment, most PTMC operations on the planet are automated. ";
+                mineEnvo = "Rock, Sand, Molten Rock";
+                displayArray = balorisArray;
+                misposts = 0;
+                break;
+            case "puumma sphere":
+                mineInfo = "A rocky world home to several unusual ore types. The conditions on Puuma Sphere make it an ideal test ground for some of the heavier mining units to have come from PTMC R&D, as well as units developed under military contract.";
+                mineEnvo = "Hardened Rock";
+                displayArray = puumaArray;
+                misposts = 0;
+                break;
+            default:
+                if (misposts >= 3)
+                {
+                    mineInfo = "Unidentified holding.";
+                    mineEnvo = "Please try one of the following: Zeta Aquilae, Quartzon, Brimspark, Limefrost Spiral, Baloris Prime, Puuma Sphere.";
+                }
+                else
+                {
+                    mineInfo = "Unidentified holding. Please try again.";
+                    mineEnvo = "";
+                    misposts++;
+                }
+                break;
+
+        }
+        
+        if (displayArray != null)
+        {
+            // mineListings = " | ";
+
+            for (int i = 0; i < displayArray.Length; i++)
+            {
+                mineListings += displayArray[i] + "    ";
+            }
+        }
+
+    }
+
+}
+<style>
+     article 
+     {
+        padding-left: 10px;
+        padding-top:10px;
+        background-color: dimgray;
+        color:lemonchiffon;
+        text-shadow: 1px 1px black;
+     }
+     input
+     {
+         border-radius: 10px;
+         background-color:lemonchiffon;
+     }
+</style>
+
+<h2>Mine Lookup</h2>
+<hr style="border: 2px solid gold" />
+<article>
+    <form class="justify-content-md-center" name="mineLookUp" method="post">
+        <p>
+            <input type="submit" value="Search" /> <input type="text" name="mineName" id="mineName" />  
+        </p>
+    </form>
+    <p>System Info: @mineInfo </p>
+    <p>Environment: @mineEnvo </p>
+    <p>Mine Listings: @mineListings</p>
+</article>
+
+

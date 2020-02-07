@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CIT218Lab1Assignment.Models;
 
 namespace CIT218Lab1Assignment.Controllers
 {
@@ -42,6 +43,22 @@ namespace CIT218Lab1Assignment.Controllers
             }
 
             
+        }
+
+        public ActionResult BotCatalog()
+        {
+
+            // This should be handled by a database in the future:
+            List<Bot> catalog = Bot.GenerateBotSeedData();
+
+            return View("BotCatalog", catalog);
+        }
+
+        public ActionResult MineLookUp()
+        {
+            List<Mine> mines = Mine.GenerateMineSeedData();
+
+            return View("MineLookUp", mines);
         }
 
     }

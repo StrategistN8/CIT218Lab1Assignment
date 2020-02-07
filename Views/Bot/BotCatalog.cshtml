@@ -1,0 +1,34 @@
+﻿<style>
+
+    body {
+        background-image: none;
+    }
+
+    article {
+        background-color: dimgray;
+        opacity: 0.85;
+    }
+</style>
+
+
+<h2>Bot Catalog</h2>
+<p>The PTMC prides itself upon its advanced robotic drones used for remote mining operations. These units allow for maximum yields at minimal human risk. The following is a list of units used in operations beyond the solar system.</p>
+<hr style="border: 2px solid gold" />
+
+@{
+
+    foreach (Bot bot in Model)
+    {
+        <article style="padding-left:1%; padding-top:1%;">
+            <aside><img src="~/Content/PTMCLogo.png" style="width:20%; height:20%; outline:2px solid white;" alt="@bot.BotName" /></aside>
+            <p>Name: @bot.BotName</p>
+            <p>Function: @bot.BotFunction</p>
+            <p>Mine System: @bot.BotMineSystem</p>
+        </article>
+        <hr style="border: 2px solid gold" />
+    }
+
+
+
+
+}
