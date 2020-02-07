@@ -11,30 +11,23 @@
     <style>
         body {
             padding-top: 0px;
+            background-image: url("../../Content/screen3.jpg");
+            background-attachment:fixed;
+            background-repeat:no-repeat;
         }
-        .navbar a:link {
-            color: white;
-        }
-
-        .navbar a:visited {
-            color: whitesmoke;
+        form{
+            background-color: dimgray;
+            padding:5px;
         }
         input{
             border-radius: 10px;
-            background-color: dimgray;
-            color:white;
+            background-color: black;
+            color:gold;
             padding:5px;
         }
-        p{
+        p {
             background-color: transparent;
-            color:white;
-        }
-        .navbar a:hover {
-            color: lemonchiffon;
-            text-shadow: 1px 1px white;
-            transition: 1s;
-            text-decoration: none;
-            font-size: 1.2em;
+            color: white;
         }
     </style>
 </head>
@@ -42,10 +35,15 @@
     <h2>Robot Request</h2>
     <article>
     <form class="justify-content-md-center" name="botRequest" method="post">
-        <p>Name of robot model: <input type="text" name="BotName" id="BotName" /></p>
-        <p>Robot Function: <input type="text" name="BotFunc" id="BotFunc" /></p>
-        <p>Intended Mine System: <input type="text" name="MineSys" id="MineSys" /></p>
-        <p>Quantity: <input type="number" name="Quantity" id="Quantity" /></p>
+        <p>Name of robot model: </p>
+        <input type="text" name="BotName" id="BotName" />
+        <p>Robot Function: </p>
+        <input type="text" name="BotFunc" id="BotFunc" />
+        <p>Intended Mine System:</p>
+        <input type="text" name="MineSys" id="MineSys" />
+        <p>Quantity: </p>
+        <input type="number" name="Quantity" id="Quantity" />
+        <hr/>
         <input type="submit" value="Submit Order Request" />
     </form>
     </article>

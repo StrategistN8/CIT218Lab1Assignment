@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Titl</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -12,11 +12,11 @@
         }
 
         .navbar a:link {
-            color: white;
+            color: gold;
         }
 
         .navbar a:visited {
-            color: whitesmoke;
+            color: gold;
         }
 
         .navbar a:hover {
@@ -47,7 +47,13 @@
                         @Html.ActionLink("Contact", "Contact", "Home")
                     </li>
                     <li class="nav-item nav-link">
-                        @Html.ActionLink("Request a Bot", "NewBot", "Bot")
+                        @Html.ActionLink("System Lookup", "MineLookUp", "Bot")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Robot Catalog", "BotCatalog", "Bot")
+                    </li>
+                    <li class="nav-item nav-link">
+                        @Html.ActionLink("Request a Robot", "NewBot", "Bot")
                     </li>
                 </ul>
             </div>
